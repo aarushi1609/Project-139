@@ -17,12 +17,27 @@ body
 #heading button
 {
     float: right;
-    color: black;
     border: none;
     font-size: 20px;
 }
 
-#play_button
+#play_button, #restart
 {
     font-size: 20px;
+}
+
+#name_footer
+{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: black;
+    background-color: white;
+}
+
+
+.modal-dialog 
+{
+    width: 60% !important;
+    background-color: white !important;
 }

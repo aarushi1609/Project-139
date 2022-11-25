@@ -19,7 +19,7 @@
         <center>
             <div id="heading" class="btn btn-warning">
                 <h3>AI Ping Pong</h3>
-                <button id="instructions" data-toggle="modal" data-target="#myModal">instructions</button> 
+                <button id="instructions" data-toggle="modal" data-target="#myModal" class="btn btn-success">instructions</button> 
             </div>
             <br><br>
             <button id="play_button" onclick="startGame()" class="btn btn-success">Play</button>
@@ -27,6 +27,29 @@
             <h4 id="status" class="btn btn-danger"></h4>
             <br><br>
             <div id="canvas"></div>
+            <button id="restart" onclick="restart();" class="btn btn-success">Restart</button>
+            <br><br>
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h2>Instructions</h2>
+                        </div>
+                        <div class="modal-body">
+                            <ol> <li>First keep your laptop screen straight</li> 
+                                <li>Move yourself approximately 3-4 feet away from the laptop</li> 
+                                <li>Move your right wrist in an ascending and decending manner, a red dot should appear on your right wrist</li> 
+                                <li>Now press the play button, and again move yourself 3-4 feet away from laptop</li> 
+                                <li>The red paddel is your paddel, that will move as per the movement of your right wrist</li> </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="name_footer">
+                <h5>developed by: aarushi vora</h5>
+            </div>
         </center>
 
         <script src="main.js"></script>
