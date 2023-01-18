@@ -1,6 +1,11 @@
-
 /*created by prashant shukla */
 
+function preload()
+{
+  ballpaddle_sound = loadSound("ball_touch_paddel.wav");
+  missed_sound = loadSound("missed_wav");
+}
+game_status = "";
 var paddle2 =10,paddle1=10;
 
 var paddle1X = 10,paddle1Height = 110;
@@ -52,9 +57,14 @@ function gotPoses(results)
   }
 }
 
-
+function startGame()
+{
+  game_status = "start";
+  document.getElementById("status").innerHTML = "Game is Loaded";
+}
 function draw(){
-
+if(game_status = "start");
+{
  background(0); 
 image(video, 0, 0, 700, 600);
  fill("black");
@@ -72,7 +82,7 @@ image(video, 0, 0, 700, 600);
    fill(250,0,0);
     stroke(0,0,250);
     strokeWeight(0.5);
-   paddle1Y = mouseY; 
+   paddle1Y = rightWristY; 
    rect(paddle1X,paddle1Y,paddle1,paddle1Height,100);
    
    
@@ -100,7 +110,7 @@ image(video, 0, 0, 700, 600);
       circle(rightWristX, rightWristY, 20);
     }
 }
-
+}
 
 
 //function reset when ball does notcame in the contact of padde
@@ -150,10 +160,12 @@ function move(){
    }
   if (ball.x-2.5*ball.r/2< 0){
   if (ball.y >= paddle1Y&& ball.y <= paddle1Y + paddle1Height) {
+    ballpaddle_sound.play();
     ball.dx = -ball.dx+0.5;
     playerscore++;
   }
   else{
+    missed_sound.play();
     pcscore++;
     reset();
     navigator.vibrate(100);
@@ -167,13 +179,20 @@ if(pcscore ==4){
     stroke("white");
     textSize(25)
     text("Game Over!☹☹",width/2,height/2);
-    text("Reload The Page!",width/2,height/2+30)
+    text("Press the restart button to play again!",width/2,height/2+30)
     noLoop();
     pcscore = 0;
 }
    if(ball.y+ball.r > height || ball.y-ball.r <0){
        ball.dy =- ball.dy;
    }   
+}
+
+function restart()
+{
+  pcscore = 0;
+  playerscore = 0;
+  loop()
 }
 
 
